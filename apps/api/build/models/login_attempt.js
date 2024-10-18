@@ -6,7 +6,7 @@ const { Schema } = mongoose;
 const loginAttemptSchema = new Schema({
   attempt_time: { type: Date, required: true },
   success: { type: Boolean, required: true },
-  user_id: { type: Schema.Types.ObjectId, ref: 'User' },
+  user_id: { type: Schema.Types.ObjectId, ref: 'User', required: true },
 });
 
 loginAttemptSchema.virtual('user', {
