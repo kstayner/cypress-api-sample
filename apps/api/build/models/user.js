@@ -13,6 +13,7 @@ const a5_0x59da9e = a5_0x15cc;
     }
 }(a5_0x559f, 0x94dad));
 import a5_0x5c2871 from 'mongoose';
+import bcrypt from 'bcryptjs';
 let User = new a5_0x5c2871[a5_0x59da9e(0xac)]({
     'name': {
         'type': String
@@ -24,13 +25,20 @@ let User = new a5_0x5c2871[a5_0x59da9e(0xac)]({
     'password': {
         'type': String
     },
-    'last_login': { // This line is added from the new code
+    'last_login': {
         'type': Date,
         'default': null
     }
 }, {
     'versionKey': ![]
 });
+User.statics.updateLastLogin = async function(userId, timestamp) {
+    try {
+        return await this.findByIdAndUpdate(userId, { last_login: timestamp }, { new: true });
+    } catch (error) {
+        throw error;
+    }
+};
 export default a5_0x5c2871[a5_0x59da9e(0xa3)](a5_0x59da9e(0xaa), User);
 
 function a5_0x15cc(_0x607053, _0x5198c1) {
