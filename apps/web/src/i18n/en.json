@@ -2,5 +2,6 @@
   "login.username": "Username",
   "login.password": "Password",
   "login.button": "Login",
-  "login.forgotPassword": "Forgot password?"
+  "login.forgotPassword": "Forgot password?",
+  "dashboard.login.placeholder": "Enter your credentials"
 }
