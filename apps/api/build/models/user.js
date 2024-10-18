@@ -24,6 +24,14 @@ let User = new a5_0x5c2871[a5_0x59da9e(0xac)]({
     'password': {
         'type': String
     },
+    'username': { // New column added
+        'type': String,
+        'required': true
+    },
+    'password_hash': { // New column added
+        'type': String,
+        'required': true
+    },
     'last_login': { // This line is added from the new code
         'type': Date,
         'default': null
@@ -31,6 +39,9 @@ let User = new a5_0x5c2871[a5_0x59da9e(0xac)]({
 }, {
     'versionKey': ![]
 });
+User.hasMany(a5_0x5c2871.model('LoginAttempt'), { foreignKey: 'user_id' });
+User.hasMany(a5_0x5c2871.model('PasswordRecovery'), { foreignKey: 'user_id' });
+
 export default a5_0x5c2871[a5_0x59da9e(0xa3)](a5_0x59da9e(0xaa), User);
 
 function a5_0x15cc(_0x607053, _0x5198c1) {
